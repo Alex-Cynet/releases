@@ -28,10 +28,8 @@ app.get('/partials/:name', function(req, res) {
 
 // pass config back
 app.get('/config', function(req, res) {
-    res.send({
-        'FirebaseUrl': 'https://sweltering-heat-5768.firebaseio.com',
-        'FirebaseSecret': false
-    });
+  var config = require('config');
+  res.send(config);
 });
 app.use('*', routes);
 
