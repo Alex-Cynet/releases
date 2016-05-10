@@ -254,7 +254,7 @@
             var NewRelease = function() {
                 return {
                     name: '',
-                    releaseDate: new Date().getTime(),
+                    releaseDate: new Date(),
                     tickets: []
                 };
             };
@@ -274,6 +274,12 @@
                 if (true !== isValid) {
                     return;
                 }
+
+                if ($scope.release.releaseDate instanceof Date)
+                {
+                    $scope.release.releaseDate = $scope.release.releaseDate.getTime();
+                }
+
                 Releases.then(function(releaseList) {
                     releaseList.$add($scope.release)
                             .then(function(ref) {
