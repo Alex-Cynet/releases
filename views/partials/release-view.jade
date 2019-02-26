@@ -24,7 +24,7 @@ div(ng-show="release")
             class='col-sm-1',
             ng-class='{"text-muted": isTicketReleased(ticket)}'
         )
-          a(href='https://jira.wrenkitchens.com/browse/{{ticket.ticketId}}') {{ticket.ticketId}}
+          a(href='https://jira.wrenkitchens.com/browse/{{ticket.ticketId}}', target="_blank") {{ticket.ticketId}}
         div(
           class='col-sm-1',
           ng-class='{"text-muted": isTicketReleased(ticket)}'
@@ -66,7 +66,7 @@ div(ng-show="release")
             title='Added {{ diff.created | date:"EEEE, MMMM d yyyy HH:mm:ss" }}'
           ) {{diff.repoName}}
         div(class='col-sm-2', ng-class='{"text-muted": diff.released}')
-          a(href='http://phab.dev.ebuyer.com/{{diff.diffId}}') {{diff.diffId}}
+          a(href='https://phabricator.ebuyer.com/{{diff.diffId}}', target="_blank") {{diff.diffId}}
         div(class='col-sm-2', ng-class='{"text-success": diff.released && !diff.rolledBack}')
           span(ng-show='diff.released && !diff.rolledBack')
             | Released &nbsp;
